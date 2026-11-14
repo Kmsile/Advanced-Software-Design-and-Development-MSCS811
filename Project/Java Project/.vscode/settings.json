@@ -1,0 +1,15 @@
+{
+  "java.project.sourcePaths": [
+    "src",
+    "examples",
+    "tests"
+  ],
+  "java.project.outputPath": "build",
+  "java.project.referencedLibraries": [
+    "lib/jsoup-1.17.2.jar"
+  ],
+  "files.exclude": {
+    "**/*.class": true
+  },
+  "java.configuration.updateBuildConfiguration": "automatic"
+}

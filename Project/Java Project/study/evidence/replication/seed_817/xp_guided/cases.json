@@ -1,0 +1,54 @@
+{
+  "hybrid": [
+    {
+      "name": "H1-successful-extraction",
+      "policy": "default",
+      "html_status": "ok",
+      "ocr_status": "ok",
+      "html_text": "Hello",
+      "ocr_text": "World",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nHello\n[OCR]\nWorld",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "H2-ocr-io-default-policy",
+      "policy": "default",
+      "html_status": "ok",
+      "ocr_status": "io",
+      "html_text": "Data",
+      "ocr_text": "",
+      "expected_status": "ocr_io",
+      "expected_text": "",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "H3-html-io-skips-ocr",
+      "policy": "return_html",
+      "html_status": "io",
+      "ocr_status": "ok",
+      "html_text": "",
+      "ocr_text": "Text",
+      "expected_status": "html_io",
+      "expected_text": "",
+      "expected_ocr_calls": -1
+    }
+  ],
+  "html": [
+    {
+      "name": "T1-ignore-script-style-noscript",
+      "markup": "<body><script>alert(1)</script><style>.c{}</style><noscript>No</noscript>Visible</body>",
+      "expected_text": "Visible"
+    },
+    {
+      "name": "T2-ignore-template-element",
+      "markup": "<body><template><div>Hidden</div></template>Shown</body>",
+      "expected_text": "Shown"
+    },
+    {
+      "name": "T3-ignore-hidden-attribute",
+      "markup": "<body><div hidden>Secret</div>Public</body>",
+      "expected_text": "Public"
+    }
+  ]
+}

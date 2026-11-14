@@ -1,0 +1,54 @@
+{
+  "hybrid": [
+    {
+      "name": "H1-success-default",
+      "policy": "default",
+      "html_status": "ok",
+      "ocr_status": "ok",
+      "html_text": "Hello",
+      "ocr_text": "World",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nHello\n[OCR]\nWorld",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "H2-fail-ocr-io-return_html",
+      "policy": "return_html",
+      "html_status": "ok",
+      "ocr_status": "io",
+      "html_text": "Data",
+      "ocr_text": "",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nData",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "H3-fail-html-io",
+      "policy": "default",
+      "html_status": "io",
+      "ocr_status": "ok",
+      "html_text": "",
+      "ocr_text": "Ignored",
+      "expected_status": "html_io",
+      "expected_text": "",
+      "expected_ocr_calls": -1
+    }
+  ],
+  "html": [
+    {
+      "name": "T1-ignore-script-style",
+      "markup": "<body><script>var x=1;</script><p>Visible</p><style>.cls{}</style></body>",
+      "expected_text": "Visible"
+    },
+    {
+      "name": "T2-ignore-template",
+      "markup": "<body><template><p>Hidden</p></template><p>Visible</p></body>",
+      "expected_text": "Visible"
+    },
+    {
+      "name": "T3-ignore-hidden-attr",
+      "markup": "<body><p hidden>Hidden</p><p>Visible</p></body>",
+      "expected_text": "Visible"
+    }
+  ]
+}

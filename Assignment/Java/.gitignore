@@ -1,0 +1,4 @@
+build/
+node_modules/
+ocr_cache/
+*.log

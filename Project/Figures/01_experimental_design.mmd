@@ -1,0 +1,16 @@
+flowchart LR
+    A["Shared contracts<br/>Six case slots"]
+    B["Direct prompt<br/>Representative tests"]
+    C["XP guidance<br/>Criterion IDs<br/>Test-first cases"]
+    D["Validate cases<br/>on clean code"]
+    E["Score ten<br/>fault variants"]
+    F["Compare<br/>24 seed pairs"]
+    A --> B
+    A --> C
+    B --> D
+    C --> D
+    D --> E --> F
+    classDef shared fill:#e9eff4,stroke:#7d94a3,color:#182d38
+    classDef condition fill:#edf6f3,stroke:#31877c,color:#182d38
+    class A,D,E,F shared
+    class B,C condition

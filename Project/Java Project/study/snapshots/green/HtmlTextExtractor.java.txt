@@ -1,0 +1,10 @@
+import java.io.IOException;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+public final class HtmlTextExtractor implements TextExtractionStrategy {
+    public String extract(PageInput input) throws IOException {
+        Document document = Jsoup.parse(input.html.toFile(), "UTF-8");
+        document.select("script, style, noscript, template, [hidden]").remove();
+        return document.body().text();
+    }
+}

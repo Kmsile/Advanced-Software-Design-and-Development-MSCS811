@@ -1,0 +1,341 @@
+{
+  "end_utc": "2026-11-14T11:09:20.870989+00:00",
+  "outcomes": [
+    {
+      "seed": 812,
+      "position": 1,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 812,
+      "position": 2,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 813,
+      "position": 1,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 813,
+      "position": 2,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 814,
+      "position": 1,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 814,
+      "position": 2,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 815,
+      "position": 1,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 815,
+      "position": 2,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 816,
+      "position": 1,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 816,
+      "position": 2,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 817,
+      "position": 1,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 817,
+      "position": 2,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 818,
+      "position": 1,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 818,
+      "position": 2,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 819,
+      "position": 1,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 819,
+      "position": 2,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 820,
+      "position": 1,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 820,
+      "position": 2,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 821,
+      "position": 1,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 821,
+      "position": 2,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 822,
+      "position": 1,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 822,
+      "position": 2,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 823,
+      "position": 1,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 823,
+      "position": 2,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 824,
+      "position": 1,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 824,
+      "position": 2,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 825,
+      "position": 1,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 825,
+      "position": 2,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 826,
+      "position": 1,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 826,
+      "position": 2,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 827,
+      "position": 1,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 827,
+      "position": 2,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 828,
+      "position": 1,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 828,
+      "position": 2,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 829,
+      "position": 1,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 829,
+      "position": 2,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 830,
+      "position": 1,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 830,
+      "position": 2,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 831,
+      "position": 1,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 831,
+      "position": 2,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 832,
+      "position": 1,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 832,
+      "position": 2,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 833,
+      "position": 1,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 833,
+      "position": 2,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 834,
+      "position": 1,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 834,
+      "position": 2,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 835,
+      "position": 1,
+      "condition": "xp_guided",
+      "status": "returned",
+      "done_reason": "stop"
+    },
+    {
+      "seed": 835,
+      "position": 2,
+      "condition": "direct",
+      "status": "returned",
+      "done_reason": "stop"
+    }
+  ]
+}

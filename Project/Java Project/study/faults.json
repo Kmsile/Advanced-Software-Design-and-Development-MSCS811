@@ -1,0 +1,52 @@
+[
+  {
+    "id": "M01", "description": "Disable optional HTML fallback", "file": "HybridTextExtractor.java",
+    "before": "if (failurePolicy == OcrFailurePolicy.RETURN_HTML && !Thread.currentThread().isInterrupted()) {",
+    "after": "if (false) {"
+  },
+  {
+    "id": "M02", "description": "Allow fallback in strict mode", "file": "HybridTextExtractor.java",
+    "before": "failurePolicy == OcrFailurePolicy.RETURN_HTML && !Thread.currentThread().isInterrupted()",
+    "after": "!Thread.currentThread().isInterrupted()"
+  },
+  {
+    "id": "M03", "description": "Mislabel HTML-only output", "file": "HybridTextExtractor.java",
+    "before": "return htmlResult;",
+    "after": "return \"[OCR]\" + htmlResult.substring(\"[HTML]\".length());"
+  },
+  {
+    "id": "M04", "description": "Allow fallback after OCR interruption", "file": "HybridTextExtractor.java",
+    "before": "failurePolicy == OcrFailurePolicy.RETURN_HTML && !Thread.currentThread().isInterrupted()",
+    "after": "failurePolicy == OcrFailurePolicy.RETURN_HTML"
+  },
+  {
+    "id": "M05", "description": "Call OCR twice on success", "file": "HybridTextExtractor.java",
+    "before": "return htmlResult + \"\\n[OCR]\\n\" + ocr.extract(input);",
+    "after": "ocr.extract(input);\n            return htmlResult + \"\\n[OCR]\\n\" + ocr.extract(input);"
+  },
+  {
+    "id": "M06", "description": "Lose the OCR provenance label", "file": "HybridTextExtractor.java",
+    "before": "return htmlResult + \"\\n[OCR]\\n\" + ocr.extract(input);",
+    "after": "return htmlResult + \"\\n[HTML]\\n\" + ocr.extract(input);"
+  },
+  {
+    "id": "M07", "description": "Retain inactive template text", "file": "HtmlTextExtractor.java",
+    "before": "script, style, noscript, template, [hidden]",
+    "after": "script, style, noscript, [hidden]"
+  },
+  {
+    "id": "M08", "description": "Retain text inside hidden elements", "file": "HtmlTextExtractor.java",
+    "before": "script, style, noscript, template, [hidden]",
+    "after": "script, style, noscript, template"
+  },
+  {
+    "id": "M09", "description": "Drop visible span text", "file": "HtmlTextExtractor.java",
+    "before": "script, style, noscript, template, [hidden]",
+    "after": "script, style, noscript, template, [hidden], span"
+  },
+  {
+    "id": "M10", "description": "Swallow an HTML input failure", "file": "HybridTextExtractor.java",
+    "before": "String htmlResult = \"[HTML]\\n\" + html.extract(input);",
+    "after": "String htmlResult;\n        try {\n            htmlResult = \"[HTML]\\n\" + html.extract(input);\n        } catch (IOException error) {\n            return \"[HTML]\\n\";\n        }"
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "hybrid": [
+    {
+      "name": "hybrid_success_all_policies",
+      "policy": "default",
+      "html_status": "ok",
+      "ocr_status": "ok",
+      "html_text": "Headline",
+      "ocr_text": "Caption",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nHeadline\n[OCR]\nCaption",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "hybrid_ocr_io_return_html",
+      "policy": "return_html",
+      "html_status": "ok",
+      "ocr_status": "io",
+      "html_text": "Main Content",
+      "ocr_text": "Ignored",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nMain Content",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "hybrid_html_io_all_policies",
+      "policy": "default",
+      "html_status": "io",
+      "ocr_status": "ok",
+      "html_text": "Ignored",
+      "ocr_text": "Ignored",
+      "expected_status": "html_io",
+      "expected_text": "",
+      "expected_ocr_calls": -1
+    }
+  ],
+  "html": [
+    {
+      "name": "html_ignore_script_style_noscript",
+      "markup": "<body><script>var x=1;</script><style>.cls{}</style><noscript>JS Off</noscript>Visible Text</body>",
+      "expected_text": "Visible Text"
+    },
+    {
+      "name": "html_ignore_template",
+      "markup": "<body><template><div>Hidden</div></template>Visible Text</body>",
+      "expected_text": "Visible Text"
+    },
+    {
+      "name": "html_ignore_hidden_attr",
+      "markup": "<body><div hidden>Hidden</div><span>Visible</span></body>",
+      "expected_text": "Visible"
+    }
+  ]
+}

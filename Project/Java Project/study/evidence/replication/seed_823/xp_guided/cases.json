@@ -1,0 +1,54 @@
+{
+  "hybrid": [
+    {
+      "name": "H1_success_default",
+      "policy": "default",
+      "html_status": "ok",
+      "ocr_status": "ok",
+      "html_text": "Hello",
+      "ocr_text": "World",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nHello\n[OCR]\nWorld",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "H2_io_return_html",
+      "policy": "return_html",
+      "html_status": "ok",
+      "ocr_status": "io",
+      "html_text": "Data",
+      "ocr_text": "Ignored",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nData",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "H3_runtime_ocr",
+      "policy": "default",
+      "html_status": "ok",
+      "ocr_status": "runtime",
+      "html_text": "Text",
+      "ocr_text": "Error",
+      "expected_status": "ocr_runtime",
+      "expected_text": "",
+      "expected_ocr_calls": 1
+    }
+  ],
+  "html": [
+    {
+      "name": "T1_ignore_script_style",
+      "markup": "<body><script>var x=1;</script><style>.a{}</style><p>Visible</p></body>",
+      "expected_text": "Visible"
+    },
+    {
+      "name": "T2_ignore_template",
+      "markup": "<body><template><p>Hidden</p></template><p>Visible</p></body>",
+      "expected_text": "Visible"
+    },
+    {
+      "name": "T3_ignore_hidden_attr",
+      "markup": "<body><div hidden>Secret</div><p>Visible</p></body>",
+      "expected_text": "Visible"
+    }
+  ]
+}

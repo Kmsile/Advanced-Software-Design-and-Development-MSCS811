@@ -1,0 +1,54 @@
+{
+  "hybrid": [
+    {
+      "name": "hybrid_success_default",
+      "policy": "default",
+      "html_status": "ok",
+      "ocr_status": "ok",
+      "html_text": "Hello",
+      "ocr_text": "World",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nHello\n[OCR]\nWorld",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "hybrid_ocr_io_return_html",
+      "policy": "return_html",
+      "html_status": "ok",
+      "ocr_status": "io",
+      "html_text": "Data",
+      "ocr_text": "Ignored",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nData",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "hybrid_ocr_runtime",
+      "policy": "default",
+      "html_status": "ok",
+      "ocr_status": "runtime",
+      "html_text": "Pre",
+      "ocr_text": "Post",
+      "expected_status": "ocr_runtime",
+      "expected_text": "",
+      "expected_ocr_calls": 1
+    }
+  ],
+  "html": [
+    {
+      "name": "html_ignore_script",
+      "markup": "<body><p>Visible</p><script>var x = 1;</script></body>",
+      "expected_text": "Visible"
+    },
+    {
+      "name": "html_ignore_template",
+      "markup": "<body><p>Show</p><template><div>Hidden</div></template></body>",
+      "expected_text": "Show"
+    },
+    {
+      "name": "html_ignore_hidden_attr",
+      "markup": "<body><p>Visible</p><div hidden>Hidden</div></body>",
+      "expected_text": "Visible"
+    }
+  ]
+}

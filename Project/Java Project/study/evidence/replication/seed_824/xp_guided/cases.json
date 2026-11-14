@@ -1,0 +1,54 @@
+{
+  "hybrid": [
+    {
+      "name": "H1-success-default-policy",
+      "policy": "default",
+      "html_status": "ok",
+      "ocr_status": "ok",
+      "html_text": "Hello",
+      "ocr_text": "World",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nHello\n[OCR]\nWorld",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "H2-ocr-io-return-html-policy",
+      "policy": "return_html",
+      "html_status": "ok",
+      "ocr_status": "io",
+      "html_text": "Content",
+      "ocr_text": "",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nContent",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "H3-html-io-default-policy",
+      "policy": "default",
+      "html_status": "io",
+      "ocr_status": "ok",
+      "html_text": "",
+      "ocr_text": "Skip",
+      "expected_status": "html_io",
+      "expected_text": "",
+      "expected_ocr_calls": -1
+    }
+  ],
+  "html": [
+    {
+      "name": "T1-ignore-script-style-noscript",
+      "markup": "<body><p>Visible</p><script>var x=1;</script><style>.c{}</style><noscript>No JS</noscript></body>",
+      "expected_text": "Visible"
+    },
+    {
+      "name": "T2-ignore-template-elements",
+      "markup": "<body><p>Real</p><template><p>Hidden</p></template></body>",
+      "expected_text": "Real"
+    },
+    {
+      "name": "T3-ignore-hidden-attribute",
+      "markup": "<body><p>Visible</p><div hidden>Hidden</div></body>",
+      "expected_text": "Visible"
+    }
+  ]
+}

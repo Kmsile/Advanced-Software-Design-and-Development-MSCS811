@@ -1,0 +1,54 @@
+{
+  "hybrid": [
+    {
+      "name": "hybrid_success_default",
+      "policy": "default",
+      "html_status": "ok",
+      "ocr_status": "ok",
+      "html_text": "Hello World",
+      "ocr_text": "Scan Result",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nHello World\n[OCR]\nScan Result",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "hybrid_ocr_io_return_html",
+      "policy": "return_html",
+      "html_status": "ok",
+      "ocr_status": "io",
+      "html_text": "Data Only",
+      "ocr_text": "",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nData Only",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "hybrid_ocr_runtime_any_policy",
+      "policy": "default",
+      "html_status": "ok",
+      "ocr_status": "runtime",
+      "html_text": "Pre-OCR",
+      "ocr_text": "",
+      "expected_status": "ocr_runtime",
+      "expected_text": "",
+      "expected_ocr_calls": 1
+    }
+  ],
+  "html": [
+    {
+      "name": "html_ignore_script_style",
+      "markup": "<body><script>var x=1;</script><style>.c{}</style><p>Visible</p></body>",
+      "expected_text": "Visible"
+    },
+    {
+      "name": "html_ignore_template",
+      "markup": "<body><template><p>Hidden</p></template><p>Visible</p></body>",
+      "expected_text": "Visible"
+    },
+    {
+      "name": "html_ignore_hidden_attr",
+      "markup": "<body><div hidden>Hidden</div><p>Visible</p></body>",
+      "expected_text": "Visible"
+    }
+  ]
+}

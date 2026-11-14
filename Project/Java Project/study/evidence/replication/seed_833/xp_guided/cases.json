@@ -1,0 +1,54 @@
+{
+  "hybrid": [
+    {
+      "name": "H1-success-default",
+      "policy": "default",
+      "html_status": "ok",
+      "ocr_status": "ok",
+      "html_text": "Hello",
+      "ocr_text": "World",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nHello\n[OCR]\nWorld",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "H2-failure-ocr-io-return-html",
+      "policy": "return_html",
+      "html_status": "ok",
+      "ocr_status": "io",
+      "html_text": "Data",
+      "ocr_text": "",
+      "expected_status": "return",
+      "expected_text": "[HTML]\nData",
+      "expected_ocr_calls": 1
+    },
+    {
+      "name": "H4-failure-ocr-interrupt",
+      "policy": "default",
+      "html_status": "ok",
+      "ocr_status": "interrupted",
+      "html_text": "Text",
+      "ocr_text": "",
+      "expected_status": "ocr_io",
+      "expected_text": "",
+      "expected_ocr_calls": 1
+    }
+  ],
+  "html": [
+    {
+      "name": "T1-ignore-scripts",
+      "markup": "<body><p>Visible</p><script>var x=1;</script><p>After</p></body>",
+      "expected_text": "VisibleAfter"
+    },
+    {
+      "name": "T2-ignore-templates",
+      "markup": "<body><p>Start</p><template><p>Hidden</p></template><p>End</p></body>",
+      "expected_text": "StartEnd"
+    },
+    {
+      "name": "T3-ignore-hidden",
+      "markup": "<body><p>Visible</p><p hidden>Hidden</p><p>End</p></body>",
+      "expected_text": "VisibleEnd"
+    }
+  ]
+}

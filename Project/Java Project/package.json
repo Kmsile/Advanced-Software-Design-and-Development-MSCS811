@@ -1,0 +1,9 @@
+{
+  "name": "thesis-strategy-ocr",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OCR bridge for the Java Strategy case study based on my masters research",
+  "dependencies": {
+    "tesseract.js": "7.0.0"
+  }
+}

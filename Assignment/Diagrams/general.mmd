@@ -1,0 +1,16 @@
+classDiagram
+direction TB
+class Context {
+ -Strategy strategy
+ +setStrategy(Strategy)
+ +execute(Input) Result
+}
+class Strategy {
+ <<interface>>
+ +execute(Input) Result
+}
+class ConcreteStrategyA
+class ConcreteStrategyB
+Context --> Strategy : delegates to 1
+ConcreteStrategyA ..|> Strategy
+ConcreteStrategyB ..|> Strategy

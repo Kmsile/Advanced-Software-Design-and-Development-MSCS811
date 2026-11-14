@@ -1,0 +1,2115 @@
+{
+  "phase": "score",
+  "executed_utc": "2026-11-12T12:33:30.621422+00:00",
+  "eligible": {
+    "direct": [
+      "direct.html.1",
+      "direct.html.2",
+      "direct.html.3",
+      "direct.hybrid.1",
+      "direct.hybrid.2",
+      "direct.hybrid.3"
+    ],
+    "xp_guided": [
+      "xp_guided.html.1",
+      "xp_guided.html.2",
+      "xp_guided.html.3",
+      "xp_guided.hybrid.1",
+      "xp_guided.hybrid.2",
+      "xp_guided.hybrid.3"
+    ],
+    "contract": [
+      "contract.html.1",
+      "contract.html.2",
+      "contract.html.3",
+      "contract.html.4",
+      "contract.hybrid.1",
+      "contract.hybrid.2",
+      "contract.hybrid.3",
+      "contract.hybrid.4",
+      "contract.hybrid.5",
+      "contract.hybrid.6",
+      "contract.hybrid.7"
+    ]
+  },
+  "clean": {
+    "baseline": {
+      "status": "PASS",
+      "checks_before_exit": 6,
+      "output": "PASS HTML retains ordinary text\nPASS HTML does not read image pixels\nPASS Context delegates to replacement strategy\nPASS Hybrid preserves both sources\nPASS hybrid propagates extraction failure\nPASS null strategy rejected\n"
+    },
+    "scenarios": {
+      "direct": [
+        {
+          "id": "direct.hybrid.1",
+          "name": "hybrid_success_standard",
+          "driver": "hybrid",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "direct.hybrid.2",
+          "name": "hybrid_ocr_io_return_html",
+          "driver": "hybrid",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "direct.hybrid.3",
+          "name": "hybrid_html_io_skip_ocr",
+          "driver": "hybrid",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "direct.html.1",
+          "name": "html_ignore_script_style",
+          "driver": "html",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "direct.html.2",
+          "name": "html_ignore_template",
+          "driver": "html",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "direct.html.3",
+          "name": "html_ignore_hidden_attr",
+          "driver": "html",
+          "status": "PASS",
+          "detail": null
+        }
+      ],
+      "xp_guided": [
+        {
+          "id": "xp_guided.hybrid.1",
+          "name": "H1-success-default",
+          "driver": "hybrid",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "xp_guided.hybrid.2",
+          "name": "H2-failure-ocr-io-return_html",
+          "driver": "hybrid",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "xp_guided.hybrid.3",
+          "name": "H3-failure-html-io",
+          "driver": "hybrid",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "xp_guided.html.1",
+          "name": "T1-ignore-script-style",
+          "driver": "html",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "xp_guided.html.2",
+          "name": "T2-ignore-template",
+          "driver": "html",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "xp_guided.html.3",
+          "name": "T3-ignore-hidden-attr",
+          "driver": "html",
+          "status": "PASS",
+          "detail": null
+        }
+      ],
+      "contract": [
+        {
+          "id": "contract.hybrid.1",
+          "name": "H1 success preserves sources and reads OCR once",
+          "driver": "hybrid",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "contract.hybrid.2",
+          "name": "H2 opt-in fallback returns labelled HTML",
+          "driver": "hybrid",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "contract.hybrid.3",
+          "name": "H2 default policy preserves the checked OCR error",
+          "driver": "hybrid",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "contract.hybrid.4",
+          "name": "H2 explicit strict policy preserves the checked OCR error",
+          "driver": "hybrid",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "contract.hybrid.5",
+          "name": "H3 HTML error stops before OCR",
+          "driver": "hybrid",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "contract.hybrid.6",
+          "name": "H3 runtime errors propagate",
+          "driver": "hybrid",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "contract.hybrid.7",
+          "name": "H4 interruption propagates and preserves interrupt status",
+          "driver": "hybrid",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "contract.html.1",
+          "name": "T1 script, style and noscript remain excluded",
+          "driver": "html",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "contract.html.2",
+          "name": "T2 inactive template text is excluded",
+          "driver": "html",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "contract.html.3",
+          "name": "T3 hidden element and nested contents are excluded",
+          "driver": "html",
+          "status": "PASS",
+          "detail": null
+        },
+        {
+          "id": "contract.html.4",
+          "name": "T4 visible nested text and decoded entities are preserved",
+          "driver": "html",
+          "status": "PASS",
+          "detail": null
+        }
+      ]
+    }
+  },
+  "fault_count": 10,
+  "detection_counts": {
+    "baseline": 2,
+    "direct": 7,
+    "xp_guided": 7,
+    "contract": 10,
+    "baseline_plus_direct": 8,
+    "baseline_plus_xp_guided": 8
+  },
+  "faults": [
+    {
+      "id": "M01",
+      "description": "Disable optional HTML fallback",
+      "detected": {
+        "baseline": false,
+        "direct": true,
+        "xp_guided": true,
+        "contract": true,
+        "baseline_plus_direct": true,
+        "baseline_plus_xp_guided": true
+      },
+      "checks": {
+        "baseline": {
+          "status": "PASS",
+          "checks_before_exit": 6,
+          "output": "PASS HTML retains ordinary text\nPASS HTML does not read image pixels\nPASS Context delegates to replacement strategy\nPASS Hybrid preserves both sources\nPASS hybrid propagates extraction failure\nPASS null strategy rejected\n"
+        },
+        "scenarios": {
+          "direct": [
+            {
+              "id": "direct.hybrid.1",
+              "name": "hybrid_success_standard",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.2",
+              "name": "hybrid_ocr_io_return_html",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected status return, observed ocr_io"
+            },
+            {
+              "id": "direct.hybrid.3",
+              "name": "hybrid_html_io_skip_ocr",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.1",
+              "name": "html_ignore_script_style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.2",
+              "name": "html_ignore_template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.3",
+              "name": "html_ignore_hidden_attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "xp_guided": [
+            {
+              "id": "xp_guided.hybrid.1",
+              "name": "H1-success-default",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.2",
+              "name": "H2-failure-ocr-io-return_html",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected status return, observed ocr_io"
+            },
+            {
+              "id": "xp_guided.hybrid.3",
+              "name": "H3-failure-html-io",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.1",
+              "name": "T1-ignore-script-style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.2",
+              "name": "T2-ignore-template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.3",
+              "name": "T3-ignore-hidden-attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "contract": [
+            {
+              "id": "contract.hybrid.1",
+              "name": "H1 success preserves sources and reads OCR once",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.2",
+              "name": "H2 opt-in fallback returns labelled HTML",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected status return, observed ocr_io"
+            },
+            {
+              "id": "contract.hybrid.3",
+              "name": "H2 default policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.4",
+              "name": "H2 explicit strict policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.5",
+              "name": "H3 HTML error stops before OCR",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.6",
+              "name": "H3 runtime errors propagate",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.7",
+              "name": "H4 interruption propagates and preserves interrupt status",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.1",
+              "name": "T1 script, style and noscript remain excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.2",
+              "name": "T2 inactive template text is excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.3",
+              "name": "T3 hidden element and nested contents are excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.4",
+              "name": "T4 visible nested text and decoded entities are preserved",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "M02",
+      "description": "Allow fallback in strict mode",
+      "detected": {
+        "baseline": true,
+        "direct": false,
+        "xp_guided": false,
+        "contract": true,
+        "baseline_plus_direct": true,
+        "baseline_plus_xp_guided": true
+      },
+      "checks": {
+        "baseline": {
+          "status": "FAIL",
+          "checks_before_exit": 4,
+          "output": "PASS HTML retains ordinary text\nPASS HTML does not read image pixels\nPASS Context delegates to replacement strategy\nPASS Hybrid preserves both sources\nException in thread \"main\" java.lang.AssertionError: Failure was hidden\n\tat StrategyTests.main(StrategyTests.java:21)\n"
+        },
+        "scenarios": {
+          "direct": [
+            {
+              "id": "direct.hybrid.1",
+              "name": "hybrid_success_standard",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.2",
+              "name": "hybrid_ocr_io_return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.3",
+              "name": "hybrid_html_io_skip_ocr",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.1",
+              "name": "html_ignore_script_style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.2",
+              "name": "html_ignore_template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.3",
+              "name": "html_ignore_hidden_attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "xp_guided": [
+            {
+              "id": "xp_guided.hybrid.1",
+              "name": "H1-success-default",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.2",
+              "name": "H2-failure-ocr-io-return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.3",
+              "name": "H3-failure-html-io",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.1",
+              "name": "T1-ignore-script-style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.2",
+              "name": "T2-ignore-template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.3",
+              "name": "T3-ignore-hidden-attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "contract": [
+            {
+              "id": "contract.hybrid.1",
+              "name": "H1 success preserves sources and reads OCR once",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.2",
+              "name": "H2 opt-in fallback returns labelled HTML",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.3",
+              "name": "H2 default policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected status ocr_io, observed return"
+            },
+            {
+              "id": "contract.hybrid.4",
+              "name": "H2 explicit strict policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected status ocr_io, observed return"
+            },
+            {
+              "id": "contract.hybrid.5",
+              "name": "H3 HTML error stops before OCR",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.6",
+              "name": "H3 runtime errors propagate",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.7",
+              "name": "H4 interruption propagates and preserves interrupt status",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.1",
+              "name": "T1 script, style and noscript remain excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.2",
+              "name": "T2 inactive template text is excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.3",
+              "name": "T3 hidden element and nested contents are excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.4",
+              "name": "T4 visible nested text and decoded entities are preserved",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "M03",
+      "description": "Mislabel HTML-only output",
+      "detected": {
+        "baseline": false,
+        "direct": true,
+        "xp_guided": true,
+        "contract": true,
+        "baseline_plus_direct": true,
+        "baseline_plus_xp_guided": true
+      },
+      "checks": {
+        "baseline": {
+          "status": "PASS",
+          "checks_before_exit": 6,
+          "output": "PASS HTML retains ordinary text\nPASS HTML does not read image pixels\nPASS Context delegates to replacement strategy\nPASS Hybrid preserves both sources\nPASS hybrid propagates extraction failure\nPASS null strategy rejected\n"
+        },
+        "scenarios": {
+          "direct": [
+            {
+              "id": "direct.hybrid.1",
+              "name": "hybrid_success_standard",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.2",
+              "name": "hybrid_ocr_io_return_html",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected text [[HTML]\nData], observed [[OCR]\nData]"
+            },
+            {
+              "id": "direct.hybrid.3",
+              "name": "hybrid_html_io_skip_ocr",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.1",
+              "name": "html_ignore_script_style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.2",
+              "name": "html_ignore_template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.3",
+              "name": "html_ignore_hidden_attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "xp_guided": [
+            {
+              "id": "xp_guided.hybrid.1",
+              "name": "H1-success-default",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.2",
+              "name": "H2-failure-ocr-io-return_html",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected text [[HTML]\nData], observed [[OCR]\nData]"
+            },
+            {
+              "id": "xp_guided.hybrid.3",
+              "name": "H3-failure-html-io",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.1",
+              "name": "T1-ignore-script-style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.2",
+              "name": "T2-ignore-template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.3",
+              "name": "T3-ignore-hidden-attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "contract": [
+            {
+              "id": "contract.hybrid.1",
+              "name": "H1 success preserves sources and reads OCR once",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.2",
+              "name": "H2 opt-in fallback returns labelled HTML",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected text [[HTML]\nAlpha], observed [[OCR]\nAlpha]"
+            },
+            {
+              "id": "contract.hybrid.3",
+              "name": "H2 default policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.4",
+              "name": "H2 explicit strict policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.5",
+              "name": "H3 HTML error stops before OCR",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.6",
+              "name": "H3 runtime errors propagate",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.7",
+              "name": "H4 interruption propagates and preserves interrupt status",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.1",
+              "name": "T1 script, style and noscript remain excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.2",
+              "name": "T2 inactive template text is excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.3",
+              "name": "T3 hidden element and nested contents are excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.4",
+              "name": "T4 visible nested text and decoded entities are preserved",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "M04",
+      "description": "Allow fallback after OCR interruption",
+      "detected": {
+        "baseline": false,
+        "direct": false,
+        "xp_guided": false,
+        "contract": true,
+        "baseline_plus_direct": false,
+        "baseline_plus_xp_guided": false
+      },
+      "checks": {
+        "baseline": {
+          "status": "PASS",
+          "checks_before_exit": 6,
+          "output": "PASS HTML retains ordinary text\nPASS HTML does not read image pixels\nPASS Context delegates to replacement strategy\nPASS Hybrid preserves both sources\nPASS hybrid propagates extraction failure\nPASS null strategy rejected\n"
+        },
+        "scenarios": {
+          "direct": [
+            {
+              "id": "direct.hybrid.1",
+              "name": "hybrid_success_standard",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.2",
+              "name": "hybrid_ocr_io_return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.3",
+              "name": "hybrid_html_io_skip_ocr",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.1",
+              "name": "html_ignore_script_style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.2",
+              "name": "html_ignore_template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.3",
+              "name": "html_ignore_hidden_attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "xp_guided": [
+            {
+              "id": "xp_guided.hybrid.1",
+              "name": "H1-success-default",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.2",
+              "name": "H2-failure-ocr-io-return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.3",
+              "name": "H3-failure-html-io",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.1",
+              "name": "T1-ignore-script-style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.2",
+              "name": "T2-ignore-template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.3",
+              "name": "T3-ignore-hidden-attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "contract": [
+            {
+              "id": "contract.hybrid.1",
+              "name": "H1 success preserves sources and reads OCR once",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.2",
+              "name": "H2 opt-in fallback returns labelled HTML",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.3",
+              "name": "H2 default policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.4",
+              "name": "H2 explicit strict policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.5",
+              "name": "H3 HTML error stops before OCR",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.6",
+              "name": "H3 runtime errors propagate",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.7",
+              "name": "H4 interruption propagates and preserves interrupt status",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected status ocr_io, observed return"
+            },
+            {
+              "id": "contract.html.1",
+              "name": "T1 script, style and noscript remain excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.2",
+              "name": "T2 inactive template text is excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.3",
+              "name": "T3 hidden element and nested contents are excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.4",
+              "name": "T4 visible nested text and decoded entities are preserved",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "M05",
+      "description": "Call OCR twice on success",
+      "detected": {
+        "baseline": false,
+        "direct": true,
+        "xp_guided": true,
+        "contract": true,
+        "baseline_plus_direct": true,
+        "baseline_plus_xp_guided": true
+      },
+      "checks": {
+        "baseline": {
+          "status": "PASS",
+          "checks_before_exit": 6,
+          "output": "PASS HTML retains ordinary text\nPASS HTML does not read image pixels\nPASS Context delegates to replacement strategy\nPASS Hybrid preserves both sources\nPASS hybrid propagates extraction failure\nPASS null strategy rejected\n"
+        },
+        "scenarios": {
+          "direct": [
+            {
+              "id": "direct.hybrid.1",
+              "name": "hybrid_success_standard",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected 1 OCR calls, observed 2"
+            },
+            {
+              "id": "direct.hybrid.2",
+              "name": "hybrid_ocr_io_return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.3",
+              "name": "hybrid_html_io_skip_ocr",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.1",
+              "name": "html_ignore_script_style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.2",
+              "name": "html_ignore_template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.3",
+              "name": "html_ignore_hidden_attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "xp_guided": [
+            {
+              "id": "xp_guided.hybrid.1",
+              "name": "H1-success-default",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected 1 OCR calls, observed 2"
+            },
+            {
+              "id": "xp_guided.hybrid.2",
+              "name": "H2-failure-ocr-io-return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.3",
+              "name": "H3-failure-html-io",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.1",
+              "name": "T1-ignore-script-style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.2",
+              "name": "T2-ignore-template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.3",
+              "name": "T3-ignore-hidden-attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "contract": [
+            {
+              "id": "contract.hybrid.1",
+              "name": "H1 success preserves sources and reads OCR once",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected 1 OCR calls, observed 2"
+            },
+            {
+              "id": "contract.hybrid.2",
+              "name": "H2 opt-in fallback returns labelled HTML",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.3",
+              "name": "H2 default policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.4",
+              "name": "H2 explicit strict policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.5",
+              "name": "H3 HTML error stops before OCR",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.6",
+              "name": "H3 runtime errors propagate",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.7",
+              "name": "H4 interruption propagates and preserves interrupt status",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.1",
+              "name": "T1 script, style and noscript remain excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.2",
+              "name": "T2 inactive template text is excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.3",
+              "name": "T3 hidden element and nested contents are excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.4",
+              "name": "T4 visible nested text and decoded entities are preserved",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "M06",
+      "description": "Lose the OCR provenance label",
+      "detected": {
+        "baseline": true,
+        "direct": true,
+        "xp_guided": true,
+        "contract": true,
+        "baseline_plus_direct": true,
+        "baseline_plus_xp_guided": true
+      },
+      "checks": {
+        "baseline": {
+          "status": "FAIL",
+          "checks_before_exit": 3,
+          "output": "PASS HTML retains ordinary text\nPASS HTML does not read image pixels\nPASS Context delegates to replacement strategy\nException in thread \"main\" java.lang.AssertionError: Hybrid preserves both sources\n\tat StrategyTests.check(StrategyTests.java:5)\n\tat StrategyTests.main(StrategyTests.java:17)\n"
+        },
+        "scenarios": {
+          "direct": [
+            {
+              "id": "direct.hybrid.1",
+              "name": "hybrid_success_standard",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected text [[HTML]\nHello\n[OCR]\nWorld], observed [[HTML]\nHello\n[HTML]\nWorld]"
+            },
+            {
+              "id": "direct.hybrid.2",
+              "name": "hybrid_ocr_io_return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.3",
+              "name": "hybrid_html_io_skip_ocr",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.1",
+              "name": "html_ignore_script_style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.2",
+              "name": "html_ignore_template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.3",
+              "name": "html_ignore_hidden_attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "xp_guided": [
+            {
+              "id": "xp_guided.hybrid.1",
+              "name": "H1-success-default",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected text [[HTML]\nHello\n[OCR]\nWorld], observed [[HTML]\nHello\n[HTML]\nWorld]"
+            },
+            {
+              "id": "xp_guided.hybrid.2",
+              "name": "H2-failure-ocr-io-return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.3",
+              "name": "H3-failure-html-io",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.1",
+              "name": "T1-ignore-script-style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.2",
+              "name": "T2-ignore-template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.3",
+              "name": "T3-ignore-hidden-attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "contract": [
+            {
+              "id": "contract.hybrid.1",
+              "name": "H1 success preserves sources and reads OCR once",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected text [[HTML]\nAlpha\n[OCR]\nBeta], observed [[HTML]\nAlpha\n[HTML]\nBeta]"
+            },
+            {
+              "id": "contract.hybrid.2",
+              "name": "H2 opt-in fallback returns labelled HTML",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.3",
+              "name": "H2 default policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.4",
+              "name": "H2 explicit strict policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.5",
+              "name": "H3 HTML error stops before OCR",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.6",
+              "name": "H3 runtime errors propagate",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.7",
+              "name": "H4 interruption propagates and preserves interrupt status",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.1",
+              "name": "T1 script, style and noscript remain excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.2",
+              "name": "T2 inactive template text is excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.3",
+              "name": "T3 hidden element and nested contents are excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.4",
+              "name": "T4 visible nested text and decoded entities are preserved",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "M07",
+      "description": "Retain inactive template text",
+      "detected": {
+        "baseline": false,
+        "direct": true,
+        "xp_guided": true,
+        "contract": true,
+        "baseline_plus_direct": true,
+        "baseline_plus_xp_guided": true
+      },
+      "checks": {
+        "baseline": {
+          "status": "PASS",
+          "checks_before_exit": 6,
+          "output": "PASS HTML retains ordinary text\nPASS HTML does not read image pixels\nPASS Context delegates to replacement strategy\nPASS Hybrid preserves both sources\nPASS hybrid propagates extraction failure\nPASS null strategy rejected\n"
+        },
+        "scenarios": {
+          "direct": [
+            {
+              "id": "direct.hybrid.1",
+              "name": "hybrid_success_standard",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.2",
+              "name": "hybrid_ocr_io_return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.3",
+              "name": "hybrid_html_io_skip_ocr",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.1",
+              "name": "html_ignore_script_style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.2",
+              "name": "html_ignore_template",
+              "driver": "html",
+              "status": "FAIL",
+              "detail": "Expected text [Visible], observed [Hidden Visible]"
+            },
+            {
+              "id": "direct.html.3",
+              "name": "html_ignore_hidden_attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "xp_guided": [
+            {
+              "id": "xp_guided.hybrid.1",
+              "name": "H1-success-default",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.2",
+              "name": "H2-failure-ocr-io-return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.3",
+              "name": "H3-failure-html-io",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.1",
+              "name": "T1-ignore-script-style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.2",
+              "name": "T2-ignore-template",
+              "driver": "html",
+              "status": "FAIL",
+              "detail": "Expected text [Before After], observed [Before Hidden After]"
+            },
+            {
+              "id": "xp_guided.html.3",
+              "name": "T3-ignore-hidden-attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "contract": [
+            {
+              "id": "contract.hybrid.1",
+              "name": "H1 success preserves sources and reads OCR once",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.2",
+              "name": "H2 opt-in fallback returns labelled HTML",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.3",
+              "name": "H2 default policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.4",
+              "name": "H2 explicit strict policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.5",
+              "name": "H3 HTML error stops before OCR",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.6",
+              "name": "H3 runtime errors propagate",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.7",
+              "name": "H4 interruption propagates and preserves interrupt status",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.1",
+              "name": "T1 script, style and noscript remain excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.2",
+              "name": "T2 inactive template text is excluded",
+              "driver": "html",
+              "status": "FAIL",
+              "detail": "Expected text [Public text], observed [Public text Draft text]"
+            },
+            {
+              "id": "contract.html.3",
+              "name": "T3 hidden element and nested contents are excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.4",
+              "name": "T4 visible nested text and decoded entities are preserved",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "M08",
+      "description": "Retain text inside hidden elements",
+      "detected": {
+        "baseline": false,
+        "direct": true,
+        "xp_guided": true,
+        "contract": true,
+        "baseline_plus_direct": true,
+        "baseline_plus_xp_guided": true
+      },
+      "checks": {
+        "baseline": {
+          "status": "PASS",
+          "checks_before_exit": 6,
+          "output": "PASS HTML retains ordinary text\nPASS HTML does not read image pixels\nPASS Context delegates to replacement strategy\nPASS Hybrid preserves both sources\nPASS hybrid propagates extraction failure\nPASS null strategy rejected\n"
+        },
+        "scenarios": {
+          "direct": [
+            {
+              "id": "direct.hybrid.1",
+              "name": "hybrid_success_standard",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.2",
+              "name": "hybrid_ocr_io_return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.3",
+              "name": "hybrid_html_io_skip_ocr",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.1",
+              "name": "html_ignore_script_style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.2",
+              "name": "html_ignore_template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.3",
+              "name": "html_ignore_hidden_attr",
+              "driver": "html",
+              "status": "FAIL",
+              "detail": "Expected text [Visible], observed [Hidden Visible]"
+            }
+          ],
+          "xp_guided": [
+            {
+              "id": "xp_guided.hybrid.1",
+              "name": "H1-success-default",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.2",
+              "name": "H2-failure-ocr-io-return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.3",
+              "name": "H3-failure-html-io",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.1",
+              "name": "T1-ignore-script-style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.2",
+              "name": "T2-ignore-template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.3",
+              "name": "T3-ignore-hidden-attr",
+              "driver": "html",
+              "status": "FAIL",
+              "detail": "Expected text [Visible], observed [Visible Hidden]"
+            }
+          ],
+          "contract": [
+            {
+              "id": "contract.hybrid.1",
+              "name": "H1 success preserves sources and reads OCR once",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.2",
+              "name": "H2 opt-in fallback returns labelled HTML",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.3",
+              "name": "H2 default policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.4",
+              "name": "H2 explicit strict policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.5",
+              "name": "H3 HTML error stops before OCR",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.6",
+              "name": "H3 runtime errors propagate",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.7",
+              "name": "H4 interruption propagates and preserves interrupt status",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.1",
+              "name": "T1 script, style and noscript remain excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.2",
+              "name": "T2 inactive template text is excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.3",
+              "name": "T3 hidden element and nested contents are excluded",
+              "driver": "html",
+              "status": "FAIL",
+              "detail": "Expected text [Public text], observed [Archived note Public text]"
+            },
+            {
+              "id": "contract.html.4",
+              "name": "T4 visible nested text and decoded entities are preserved",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "M09",
+      "description": "Drop visible span text",
+      "detected": {
+        "baseline": false,
+        "direct": false,
+        "xp_guided": false,
+        "contract": true,
+        "baseline_plus_direct": false,
+        "baseline_plus_xp_guided": false
+      },
+      "checks": {
+        "baseline": {
+          "status": "PASS",
+          "checks_before_exit": 6,
+          "output": "PASS HTML retains ordinary text\nPASS HTML does not read image pixels\nPASS Context delegates to replacement strategy\nPASS Hybrid preserves both sources\nPASS hybrid propagates extraction failure\nPASS null strategy rejected\n"
+        },
+        "scenarios": {
+          "direct": [
+            {
+              "id": "direct.hybrid.1",
+              "name": "hybrid_success_standard",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.2",
+              "name": "hybrid_ocr_io_return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.3",
+              "name": "hybrid_html_io_skip_ocr",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.1",
+              "name": "html_ignore_script_style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.2",
+              "name": "html_ignore_template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.3",
+              "name": "html_ignore_hidden_attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "xp_guided": [
+            {
+              "id": "xp_guided.hybrid.1",
+              "name": "H1-success-default",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.2",
+              "name": "H2-failure-ocr-io-return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.3",
+              "name": "H3-failure-html-io",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.1",
+              "name": "T1-ignore-script-style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.2",
+              "name": "T2-ignore-template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.3",
+              "name": "T3-ignore-hidden-attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "contract": [
+            {
+              "id": "contract.hybrid.1",
+              "name": "H1 success preserves sources and reads OCR once",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.2",
+              "name": "H2 opt-in fallback returns labelled HTML",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.3",
+              "name": "H2 default policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.4",
+              "name": "H2 explicit strict policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.5",
+              "name": "H3 HTML error stops before OCR",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.6",
+              "name": "H3 runtime errors propagate",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.7",
+              "name": "H4 interruption propagates and preserves interrupt status",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.1",
+              "name": "T1 script, style and noscript remain excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.2",
+              "name": "T2 inactive template text is excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.3",
+              "name": "T3 hidden element and nested contents are excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.4",
+              "name": "T4 visible nested text and decoded entities are preserved",
+              "driver": "html",
+              "status": "FAIL",
+              "detail": "Expected text [News and updates & events], observed [News & events]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "M10",
+      "description": "Swallow an HTML input failure",
+      "detected": {
+        "baseline": false,
+        "direct": true,
+        "xp_guided": true,
+        "contract": true,
+        "baseline_plus_direct": true,
+        "baseline_plus_xp_guided": true
+      },
+      "checks": {
+        "baseline": {
+          "status": "PASS",
+          "checks_before_exit": 6,
+          "output": "PASS HTML retains ordinary text\nPASS HTML does not read image pixels\nPASS Context delegates to replacement strategy\nPASS Hybrid preserves both sources\nPASS hybrid propagates extraction failure\nPASS null strategy rejected\n"
+        },
+        "scenarios": {
+          "direct": [
+            {
+              "id": "direct.hybrid.1",
+              "name": "hybrid_success_standard",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.2",
+              "name": "hybrid_ocr_io_return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.hybrid.3",
+              "name": "hybrid_html_io_skip_ocr",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected status html_io, observed return"
+            },
+            {
+              "id": "direct.html.1",
+              "name": "html_ignore_script_style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.2",
+              "name": "html_ignore_template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "direct.html.3",
+              "name": "html_ignore_hidden_attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "xp_guided": [
+            {
+              "id": "xp_guided.hybrid.1",
+              "name": "H1-success-default",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.2",
+              "name": "H2-failure-ocr-io-return_html",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.hybrid.3",
+              "name": "H3-failure-html-io",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected status html_io, observed return"
+            },
+            {
+              "id": "xp_guided.html.1",
+              "name": "T1-ignore-script-style",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.2",
+              "name": "T2-ignore-template",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "xp_guided.html.3",
+              "name": "T3-ignore-hidden-attr",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ],
+          "contract": [
+            {
+              "id": "contract.hybrid.1",
+              "name": "H1 success preserves sources and reads OCR once",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.2",
+              "name": "H2 opt-in fallback returns labelled HTML",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.3",
+              "name": "H2 default policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.4",
+              "name": "H2 explicit strict policy preserves the checked OCR error",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.5",
+              "name": "H3 HTML error stops before OCR",
+              "driver": "hybrid",
+              "status": "FAIL",
+              "detail": "Expected status html_io, observed return"
+            },
+            {
+              "id": "contract.hybrid.6",
+              "name": "H3 runtime errors propagate",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.hybrid.7",
+              "name": "H4 interruption propagates and preserves interrupt status",
+              "driver": "hybrid",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.1",
+              "name": "T1 script, style and noscript remain excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.2",
+              "name": "T2 inactive template text is excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.3",
+              "name": "T3 hidden element and nested contents are excluded",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            },
+            {
+              "id": "contract.html.4",
+              "name": "T4 visible nested text and decoded entities are preserved",
+              "driver": "html",
+              "status": "PASS",
+              "detail": null
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "fault_recipes_sha256": "74f66c6fc0c5d83a41055b46f28da82395641252580c13c3d5f9560259f55c37",
+  "model_receipt_sha256": "5397ea2b8b55027e0b2a75fa2485286a002de412ef794ca917c3d1659e7b4f05",
+  "source_sha256": {
+    "Demo.java": "5998176ebd1ca7fc065c5f3c6ba72b020fa1637cee52d22faad86731b733a8f3",
+    "HtmlTextExtractor.java": "424c15a7251b1a17cf3caf159a216465ab7551896bfbf01f6a6aab66c00174a5",
+    "HybridTextExtractor.java": "bab3605a1df93f22b675aa1cb55965175c3911b29cac396366f6abdb52b1bcf8",
+    "OcrTextExtractor.java": "746c43edbadd635a8f18a5ec700d06c138405499d30b1657cfdf2ed61723bca3",
+    "PageInput.java": "a047087505a2cada75b051d72599d1df9bb543ccbb2163f6a2475a120a4dbf83",
+    "StrategyTests.java": "c227c320c8ad7936b2140954b52f7d2a7f9e47235dfc8acd30d51d850edca183",
+    "TextExtractionContext.java": "d71052568755cdcb0d8ee836d6dd0b5048313c025e439c3f8e6b0824bfbc3732",
+    "TextExtractionStrategy.java": "23b2ebc43c3dba07f46c3926c00e53304ecf29f93def0327af7ac91f104e2a9c",
+    "ScenarioCheck.java": "ff41c466e93f56a7777d4c969605b21c3bcbc8d039a3aac0de817a618be97ba4"
+  }
+}

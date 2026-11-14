@@ -1,0 +1,8 @@
+build/
+node_modules/
+ocr_cache/
+study/replay/
+study/regenerated/
+study/new_replication/
+__pycache__/
+*.log

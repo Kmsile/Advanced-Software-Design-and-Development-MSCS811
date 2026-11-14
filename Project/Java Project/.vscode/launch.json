@@ -1,0 +1,41 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Demo \u2014 thesis extraction strategies",
+      "request": "launch",
+      "mainClass": "Demo",
+      "javaExec": "java",
+      "classPaths": [
+        "${workspaceFolder}/build",
+        "${workspaceFolder}/lib/jsoup-1.17.2.jar"
+      ],
+      "sourcePaths": ["${workspaceFolder}/src", "${workspaceFolder}/examples"],
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "node"
+      ],
+      "console": "integratedTerminal",
+      "preLaunchTask": "Build Java"
+    },
+    {
+      "type": "java",
+      "name": "Tests \u2014 eight functional checks",
+      "request": "launch",
+      "mainClass": "StrategyTests",
+      "javaExec": "java",
+      "classPaths": [
+        "${workspaceFolder}/build",
+        "${workspaceFolder}/lib/jsoup-1.17.2.jar"
+      ],
+      "sourcePaths": ["${workspaceFolder}/src", "${workspaceFolder}/tests"],
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "node"
+      ],
+      "console": "integratedTerminal",
+      "preLaunchTask": "Build Java"
+    }
+  ]
+}

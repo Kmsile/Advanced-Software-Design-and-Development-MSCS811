@@ -1,0 +1,120 @@
+{
+  "model": "qwen3.6:latest",
+  "prompt": "You are drafting unit-test scenarios for two changes to a Java text extractor before those changes are implemented. Produce exactly three hybrid scenarios and exactly three HTML scenarios, following the JSON schema. Use short synthetic examples. These are data records, not Java code.\n\nContract H1: The hybrid extractor calls the HTML strategy first. On success, it calls OCR once. Its exact successful result is \"[HTML]\\n\" + html_text + \"\\n[OCR]\\n\" + ocr_text.\nContract H2: On OCR IOException, default and propagate policies return status ocr_io. The return_html policy yields status return with exact text \"[HTML]\\n\" + html_text.\nContract H3: An HTML IOException returns status html_io and skips OCR. An OCR runtime exception returns ocr_runtime under every policy.\nContract H4: An interrupted OCR call returns ocr_io under every policy and the interrupt status remains set.\n\nFor a hybrid case, choose a policy, the status of each mocked strategy and short text for each. expected_status is the result of the combined extraction. Set expected_text to the exact output for status return and an empty string for exception statuses. Set expected_ocr_calls to -1 if the case does not assert the number of calls, otherwise use 0 or 1.\n\nContract T1: HTML extraction ignores script, style, and noscript elements.\nContract T2: The updated extractor ignores template elements and their contents.\nContract T3: The updated extractor ignores elements that carry the HTML hidden attribute and their contents.\nContract T4: The extractor returns normalized body text, including text of normal nested elements and decoded entities.\n\nFor each HTML case supply local, short HTML markup and the exact expected text. Use standalone body examples with harmless labels. No URLs or external resources. An expected string for an empty body is valid. Return only the structured JSON object.\n\nApply XP test-first design. Start from the listed acceptance criteria and put the criterion ID at the beginning of each case name. Use the case budget for distinct observable behaviors. Include cases that would fail before the new implementation and a relevant boundary or failure case. Assert exact outcomes and call counts when the contract specifies them.\n",
+  "format": {
+    "type": "object",
+    "properties": {
+      "hybrid": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "policy": {
+              "type": "string",
+              "enum": [
+                "default",
+                "propagate",
+                "return_html"
+              ]
+            },
+            "html_status": {
+              "type": "string",
+              "enum": [
+                "ok",
+                "io"
+              ]
+            },
+            "ocr_status": {
+              "type": "string",
+              "enum": [
+                "ok",
+                "io",
+                "runtime",
+                "interrupted"
+              ]
+            },
+            "html_text": {
+              "type": "string"
+            },
+            "ocr_text": {
+              "type": "string"
+            },
+            "expected_status": {
+              "type": "string",
+              "enum": [
+                "return",
+                "html_io",
+                "ocr_io",
+                "ocr_runtime"
+              ]
+            },
+            "expected_text": {
+              "type": "string"
+            },
+            "expected_ocr_calls": {
+              "type": "integer",
+              "minimum": -1,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "name",
+            "policy",
+            "html_status",
+            "ocr_status",
+            "html_text",
+            "ocr_text",
+            "expected_status",
+            "expected_text",
+            "expected_ocr_calls"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 3,
+        "maxItems": 3
+      },
+      "html": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "markup": {
+              "type": "string"
+            },
+            "expected_text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "markup",
+            "expected_text"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 3,
+        "maxItems": 3
+      }
+    },
+    "required": [
+      "hybrid",
+      "html"
+    ],
+    "additionalProperties": false
+  },
+  "stream": false,
+  "think": false,
+  "options": {
+    "seed": 811,
+    "temperature": 0,
+    "num_ctx": 4096,
+    "num_predict": 2000
+  },
+  "keep_alive": "10m"
+}

@@ -1,0 +1,40 @@
+classDiagram
+    direction TB
+    class PageInput {
+        +Path html
+        +Path screenshot
+    }
+    class TextExtractionStrategy {
+        <<interface>>
+        +extract(PageInput) String
+    }
+    class TextExtractionContext {
+        -TextExtractionStrategy strategy
+        +setStrategy(TextExtractionStrategy) void
+        +extractText(PageInput) String
+    }
+    class HtmlTextExtractor {
+        +extract(PageInput) String
+    }
+    class OcrTextExtractor {
+        -String node
+        -Path bridge
+        +extract(PageInput) String
+    }
+    class HybridTextExtractor {
+        -TextExtractionStrategy html
+        -TextExtractionStrategy ocr
+        -OcrFailurePolicy failurePolicy
+        +extract(PageInput) String
+    }
+    class OcrFailurePolicy {
+        <<enumeration>>
+        PROPAGATE
+        RETURN_HTML
+    }
+    TextExtractionContext --> TextExtractionStrategy : delegates
+    TextExtractionStrategy <|.. HtmlTextExtractor
+    TextExtractionStrategy <|.. OcrTextExtractor
+    TextExtractionStrategy <|.. HybridTextExtractor
+    PageInput <.. TextExtractionStrategy : input
+    HybridTextExtractor --> OcrFailurePolicy : selects

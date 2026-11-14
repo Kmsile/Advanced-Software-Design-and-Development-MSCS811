@@ -1,0 +1,8 @@
+PASS HTML retains ordinary text
+PASS HTML does not read image pixels
+PASS Context delegates to replacement strategy
+PASS Hybrid preserves both sources
+PASS hybrid propagates extraction failure
+PASS null strategy rejected
+PASS Real OCR recovers image-rendered target
+PASS missing screenshot reported

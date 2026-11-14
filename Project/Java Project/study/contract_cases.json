@@ -1,0 +1,68 @@
+{
+  "hybrid": [
+    {
+      "name": "H1 success preserves sources and reads OCR once",
+      "policy": "return_html", "html_status": "ok", "ocr_status": "ok",
+      "html_text": "Alpha", "ocr_text": "Beta",
+      "expected_status": "return", "expected_text": "[HTML]\nAlpha\n[OCR]\nBeta", "expected_ocr_calls": 1
+    },
+    {
+      "name": "H2 opt-in fallback returns labelled HTML",
+      "policy": "return_html", "html_status": "ok", "ocr_status": "io",
+      "html_text": "Alpha", "ocr_text": "",
+      "expected_status": "return", "expected_text": "[HTML]\nAlpha", "expected_ocr_calls": 1
+    },
+    {
+      "name": "H2 default policy preserves the checked OCR error",
+      "policy": "default", "html_status": "ok", "ocr_status": "io",
+      "html_text": "Alpha", "ocr_text": "",
+      "expected_status": "ocr_io", "expected_text": "", "expected_ocr_calls": 1
+    },
+    {
+      "name": "H2 explicit strict policy preserves the checked OCR error",
+      "policy": "propagate", "html_status": "ok", "ocr_status": "io",
+      "html_text": "Alpha", "ocr_text": "",
+      "expected_status": "ocr_io", "expected_text": "", "expected_ocr_calls": 1
+    },
+    {
+      "name": "H3 HTML error stops before OCR",
+      "policy": "return_html", "html_status": "io", "ocr_status": "ok",
+      "html_text": "", "ocr_text": "Beta",
+      "expected_status": "html_io", "expected_text": "", "expected_ocr_calls": 0
+    },
+    {
+      "name": "H3 runtime errors propagate",
+      "policy": "return_html", "html_status": "ok", "ocr_status": "runtime",
+      "html_text": "Alpha", "ocr_text": "",
+      "expected_status": "ocr_runtime", "expected_text": "", "expected_ocr_calls": 1
+    },
+    {
+      "name": "H4 interruption propagates and preserves interrupt status",
+      "policy": "return_html", "html_status": "ok", "ocr_status": "interrupted",
+      "html_text": "Alpha", "ocr_text": "",
+      "expected_status": "ocr_io", "expected_text": "", "expected_ocr_calls": 1
+    }
+  ],
+  "html": [
+    {
+      "name": "T1 script, style and noscript remain excluded",
+      "markup": "<body><script>Script</script><style>Style</style><noscript>Old notice</noscript><p>Public text</p></body>",
+      "expected_text": "Public text"
+    },
+    {
+      "name": "T2 inactive template text is excluded",
+      "markup": "<body><p>Public text</p><template><div>Draft text</div></template></body>",
+      "expected_text": "Public text"
+    },
+    {
+      "name": "T3 hidden element and nested contents are excluded",
+      "markup": "<body><div hidden><p>Archived note</p></div><p>Public text</p></body>",
+      "expected_text": "Public text"
+    },
+    {
+      "name": "T4 visible nested text and decoded entities are preserved",
+      "markup": "<body><p>News <span>and updates</span> &amp; events</p></body>",
+      "expected_text": "News and updates & events"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+sequenceDiagram
+    participant C as Client
+    participant H as Hybrid extractor
+    participant T as HTML strategy
+    participant O as OCR strategy
+    C->>H: extract(page)
+    H->>T: extract(page)
+    alt HTML extraction fails
+        T-->>H: Throw IOException
+        H-->>C: Propagate HTML error
+    else HTML extraction succeeds
+        T-->>H: HTML text
+        H->>O: extract(page)
+        alt OCR succeeds
+            O-->>H: OCR text
+            H-->>C: Labelled HTML and OCR
+        else OCR I/O error with eligible fallback
+            O-->>H: Throw IOException
+            H-->>C: Labelled HTML
+        else OCR error under other conditions
+            O-->>H: Throw extraction error
+            H-->>C: Propagate error
+        end
+    end

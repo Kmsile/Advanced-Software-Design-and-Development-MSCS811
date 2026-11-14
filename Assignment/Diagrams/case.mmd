@@ -1,0 +1,24 @@
+classDiagram
+direction TB
+class TextExtractionContext {
+ -TextExtractionStrategy strategy
+ +setStrategy(strategy)
+ +extractText(PageInput) String
+}
+class TextExtractionStrategy {
+ <<interface>>
+ +extract(PageInput) String
+}
+class HtmlTextExtractor
+class OcrTextExtractor
+class HybridTextExtractor
+class PageInput {
+ +Path html
+ +Path screenshot
+}
+TextExtractionContext --> TextExtractionStrategy : delegates
+TextExtractionContext ..> PageInput : receives
+HtmlTextExtractor ..|> TextExtractionStrategy
+OcrTextExtractor ..|> TextExtractionStrategy
+HybridTextExtractor ..|> TextExtractionStrategy
+HybridTextExtractor --> TextExtractionStrategy : html and ocr
